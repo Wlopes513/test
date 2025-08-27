@@ -10,4 +10,14 @@ jobs:
     name: Preflight Step
     runs-on: ubuntu-latest
     steps:
-      - run: env
+      - name: Set Git user
+        run: |
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@test.com"
+      
+      - name: Bump version
+        run: |
+          npm version patch --no-git-tag-version
+          git add package.json
+          git commit -m "chore: tes test [skip ci]"
+          git push
