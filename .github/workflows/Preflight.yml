@@ -1,5 +1,5 @@
 ---
-name: Preflight
+name: Preflight2
 
 on:
   - pull_request
